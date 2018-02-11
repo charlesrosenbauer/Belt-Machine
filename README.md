@@ -1,0 +1,1 @@
+This is an attempt at an emulator for a belt machine -based CPU. It is modelled heavily on the Mill Architecture, though many differences exist. These differences exist because A.) they make emulation easier, and B.) not all features of the Mill architecture have been unveiled yet.
