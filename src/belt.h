@@ -47,4 +47,32 @@ typedef struct{
 }BELT;
 
 
+
+
+
+
+
+
+
+
+typedef uint16_t OPCODE;
+const uint16_t OPMASK_A = 0xF800;
+const uint16_t OPMASK_B = 0x07C0;
+const uint16_t OPMASK_X = 0x003F;
+const int OPSHIFT_A     = 11;
+const int OPSHIFT_B     =  6;
+const int OPSHIFT_X     =  0;
+
+
+
+
+
+
+
+
+
+
+void getBeltItems(Belt*, OPCODE, REGISTER*, REGISTER*);
+
+
 #endif
