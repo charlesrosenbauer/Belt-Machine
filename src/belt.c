@@ -9,7 +9,7 @@
 
 
 
-inline void getBeltItems(Belt* belt, OPCODE op, REGISTER* a, REGISTER* b){
+inline void getBeltItems(BELT* belt, OPCODE op, REGISTER* a, REGISTER* b){
   int iA = (op & OPMASK_A) >> OPSHIFT_A;
   int iB = (op & OPMASK_B) >> OPSHIFT_B;
 
