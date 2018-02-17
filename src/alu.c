@@ -9,6 +9,45 @@
 
 
 
+
+REGISTER getMetaData_1Par(REGISTER a){
+  REGISTER ret;
+  ret.metadata = a.metadata;
+  ret.val = 0;
+  return ret;
+}
+
+
+
+
+
+
+
+
+
+
+REGISTER getMetaData_2Par(REGISTER a, REGISTER b){
+  REGISTER ret;
+  if((a.metadata & MD_MASK_VALID == MD_VALID) && (a.metadata & MD_MASK_VALID == MD_VALID)){
+    ret.metadata = MD_VALID;
+  }else if((a.metadata & MD_MASK_VALID == MD_NONE) || (a.metadata & MD_MASK_VALID == MD_NONE)){
+    ret.metadata = MD_NONE;
+  }else if((a.metadata & MD_MASK_VALID == MD_NAR) || (a.metadata & MD_MASK_VALID == MD_NAR)){
+    ret.metadata = MD_NAR;
+  }else{
+    ret.metadata = MD_VOID;
+  }
+  ret.val = 0;
+  return ret;
+}
+
+
+
+
+
+
+
+
 /*
   @FIX : This needs to be adapted to better take into account None and Invalid values.
 */
