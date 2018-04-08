@@ -60,9 +60,9 @@ typedef struct{
   REGISTER a, b, c, d;
 
   // Registers for delayed instructions
-  REGISTER quot [32];   // Delay = 24c
-  REGISTER remn [32];   // "
-  REGISTER mult [32];   // Delay =  3c
+  REGISTER quot [2][32];   // Delay = 24c
+  REGISTER remn [2][32];   // "
+  REGISTER mult [2][32];   // Delay =  3c
   int offset;
 }ALU;
 
@@ -80,9 +80,9 @@ typedef struct{
   REGISTER a, b, c, d;
 
   // Registers for delayed instructions
-  REGISTER quot [32];   // Delay = 18c
-  REGISTER remn [32];   // "
-  REGISTER mult [32];   // Delay = 3c
+  REGISTER quot [2][32];   // Delay = 18c
+  REGISTER remn [2][32];   // "
+  REGISTER mult [2][32];   // Delay = 3c
   int offsetQ, offsetR, offsetM;
 }FPU;
 
@@ -98,6 +98,24 @@ typedef struct{
 typedef struct{
   REGISTER retires[16];   // Retire stations for load/store
 }RETIRE;
+
+
+
+
+
+
+
+
+
+
+typedef struct{
+  BELT belt;
+
+  ALU alu[2]; // 2 ALU gangs, 4 ALUs total
+  FPU fpu[2]; // 2 FPU gangs, 4 ALUs total
+
+  RETIRE retire;  // Retire stations
+}BELTCORE;
 
 
 
