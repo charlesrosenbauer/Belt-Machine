@@ -55,6 +55,59 @@ typedef struct{
 
 
 
+typedef struct{
+  // Internal ganging registers
+  REGISTER a, b, c, d;
+
+  // Registers for delayed instructions
+  REGISTER quot [32];   // Delay = 24c
+  REGISTER remn [32];   // "
+  REGISTER mult [32];   // Delay =  3c
+  int offset;
+}ALU;
+
+
+
+
+
+
+
+
+
+
+typedef struct{
+  // Internal ganging registers
+  REGISTER a, b, c, d;
+
+  // Registers for delayed instructions
+  REGISTER quot [32];   // Delay = 18c
+  REGISTER remn [32];   // "
+  REGISTER mult [32];   // Delay = 3c
+  int offsetQ, offsetR, offsetM;
+}FPU;
+
+
+
+
+
+
+
+
+
+
+typedef struct{
+  REGISTER retires[16];   // Retire stations for load/store
+}RETIRE;
+
+
+
+
+
+
+
+
+
+
 typedef uint16_t OPCODE;
 static const uint16_t OPMASK_A = 0xF800;
 static const uint16_t OPMASK_B = 0x07C0;
