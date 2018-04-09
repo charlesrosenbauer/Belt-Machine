@@ -74,6 +74,8 @@ static const int OPSHIFT_X     =  0;
 
 
 void getBeltItems(BELT*, OPCODE, REGISTER*, REGISTER*);
+void pushBelt(BELT*, REGISTER);
+void pushNewBelt(BELT*, BELT*, REGISTER);
 
 
 #endif
