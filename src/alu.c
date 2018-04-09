@@ -51,7 +51,7 @@ REGISTER getMetaData_2Par(REGISTER a, REGISTER b){
 /*
   @FIX : This needs to be adapted to better take into account None and Invalid values.
 */
-void aluOp(BELT* belt, OPCODE aop, OPCODE bop){
+void aluOp(BELT* belt, BELT* outbelt, ALU* alu, OPCODE aop, OPCODE bop){
 
   int opA = aop & OPMASK_X;
   int opB = bop & OPMASK_X;
