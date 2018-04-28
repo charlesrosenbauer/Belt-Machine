@@ -2,35 +2,16 @@ This is an attempt at an emulator for a belt machine -based CPU. It is modelled 
 
 ---
 
-Specifications (planned; subject to change)
+This CPU is designed to function similarly to the Mill-Gold core, though with a variety of differences.
 
-32 instruction slots, up to 32-issue
+There are:
+  * 8 Input units
+  * 8 ALU/FPUs
+  * 8 Call Units
+  * 4 Pick Units
+  * 4 Output Units
+  * 16 Retire Stations
+  * 256B SIMD
+  * 512B Scratchpad
 
-*Phase 0*
-
- 3 DMA Read Units
-
- --
-
-*Phase 1a*
-
-16 ALUs
- 6 FPUs
-
- --
-
- *Phase 1b*
-
- 2 Call Units
-
- --
-
- *Phase 1c*
-
- 2 Pick Units
-
- --
-
- *Phase 2*
- 
- 3 DMA Write Units
+This core can execute 32 instructions per cycle.
