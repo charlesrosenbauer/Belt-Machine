@@ -29,8 +29,7 @@ typedef struct{
 typedef struct{
   BELT belt;
 
-  ALU alu[2]; // 2 ALU gangs, 4 ALUs total
-  FPU fpu[2]; // 2 FPU gangs, 4 FPUs total
+  ALU alu[4]; // 2 ALU gangs, 4 ALUs total
 
   RETIRE retire;  // Retire stations
 }BELTCORE;
@@ -45,6 +44,7 @@ typedef struct{
 
 
 void coreStep(BELTCORE*);
+void printDecode(uint16_t*);
 
 
 
