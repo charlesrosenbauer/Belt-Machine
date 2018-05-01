@@ -45,6 +45,9 @@ typedef struct{
 
 void coreStep(BELTCORE*);
 void printDecode(uint16_t*);
+void addOp_2Par(uint16_t*, int*, int, int, int);
+void addOp_3Par(uint16_t*, int*, int, int, int, int);
+void addInsHead(uint16_t*, int*, uint32_t);
 
 
 

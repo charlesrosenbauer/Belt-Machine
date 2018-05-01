@@ -14,6 +14,20 @@
 
 
 typedef struct{
+  REGISTER vals [32];
+  int delay;
+}DELAY;
+
+
+
+
+
+
+
+
+
+
+typedef struct{
   // Internal ganging registers
   REGISTER a, b, c, d;
 
@@ -53,8 +67,24 @@ typedef struct{
 
 
 
+static const int RETIRE_OP = 0;
+
+static const int PICK_OP   = 0;
+
+
+
+
+
+
+
+
+
+
 // Handles a pair of ALUs, in case multiple parameters are passed into one
-void aluOp(BELT*, BELT*, ALU*, OPCODE, OPCODE);
-void fpuOp(BELT*, BELT*, FPU*, OPCODE, OPCODE);
+void  aluOp(BELT*, BELT*, ALU*, OPCODE, OPCODE);
+void  fpuOp(BELT*, BELT*, FPU*, OPCODE, OPCODE);
+DELAY makeDelay(int);
+void  pushDelay(DELAY*, REGISTER);
+void  popDelay (DELAY*, BELT*);
 
 #endif

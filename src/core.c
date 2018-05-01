@@ -34,11 +34,61 @@ inline void printOp_3Par(uint16_t ins){
 
 
 
+void addOp_2Par(uint16_t* program, int* index, int op, int a, int b){
+  uint16_t ins = (op << 10) | ((b & 0x1F) << 5) | (a & 0x1F);
+  program[*index] = ins;
+  (*index) += 1;
+}
+
+
+
+
+
+
+
+
+
+
+void addOp_3Par(uint16_t* program, int* index, int op, int a, int b, int c){
+  uint16_t ins = (op << 15) | ((c & 0x1F) << 10) | ((b & 0x1F) << 5) | (a & 0x1F);
+  program[*index] = ins;
+  (*index) += 1;
+}
+
+
+
+
+
+
+
+
+
+
+void addInsHead(uint16_t* program, int* index, uint32_t headercode){
+  uint16_t header0 = headercode >> 16;
+  uint16_t header1 = headercode & 0xFFFF;
+
+  program[*index  ] = header0;
+  program[*index+1] = header1;
+  (*index) += 2;
+}
+
+
+
+
+
+
+
+
+
+
 void printDecode(uint16_t* ip){
   if(ip[0] | ip[1]){ // If not NOP
     uint32_t header = (((uint32_t)ip[0]) << 16) | ip[1];
 
     printf("%x\n\n", header);
+
+    const uint32_t slotmask = 0x80000000;
 
     int index = 2;
     for(int slot = 0; slot < 32; slot++){
@@ -46,7 +96,7 @@ void printDecode(uint16_t* ip){
       if(slot < 8){
         if(slot ==  0) printf("Read Phase:\n");
         // Read Phase
-        if((1 << slot) & header){
+        if((slotmask >> slot) & header){
           // Decode Instruction
           printOp_2Par(ip[index]);
           index++;
@@ -54,7 +104,7 @@ void printDecode(uint16_t* ip){
       }else if(slot < 16){
         if(slot ==  8) printf("Exec Phase:\n");
         // Exec Phase
-        if((1 << slot) & header){
+        if((slotmask >> slot) & header){
           // Decode Instruction
           printOp_2Par(ip[index]);
           index++;
@@ -62,7 +112,7 @@ void printDecode(uint16_t* ip){
       }else if(slot < 24){
         if(slot == 16) printf("Call Phase:\n");
         // Call Phase
-        if((1 << slot) & header){
+        if((slotmask >> slot) & header){
           // Decode Instruction
           printOp_2Par(ip[index]);
           index++;
@@ -70,7 +120,7 @@ void printDecode(uint16_t* ip){
       }else if(slot < 28){
         if(slot == 24) printf("Pick Phase:\n");
         // Pick Phase
-        if((1 << slot) & header){
+        if((slotmask >> slot) & header){
           // Decode Instruction
           printOp_3Par(ip[index]);
           index++;
@@ -78,7 +128,7 @@ void printDecode(uint16_t* ip){
       }else{
         if(slot == 28) printf("Write Phase:\n");
         // Write Phase
-        if((1 << slot) & header){
+        if((slotmask >> slot) & header){
           // Decode Instruction
           printOp_2Par(ip[index]);
           index++;
