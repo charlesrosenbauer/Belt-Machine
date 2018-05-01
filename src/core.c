@@ -34,6 +34,21 @@ inline void printOp_3Par(uint16_t ins){
 
 
 
+void addOp_1Par(uint16_t* program, int* index, int op, int a){
+  uint16_t ins = (op << 10) | (a & 0x3FF);
+  program[*index] = ins;
+  (*index) += 1;
+}
+
+
+
+
+
+
+
+
+
+
 void addOp_2Par(uint16_t* program, int* index, int op, int a, int b){
   uint16_t ins = (op << 10) | ((b & 0x1F) << 5) | (a & 0x1F);
   program[*index] = ins;
