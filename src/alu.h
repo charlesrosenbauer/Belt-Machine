@@ -106,6 +106,13 @@ static const int ARGX_OP = 27;
 static const int FMAS_OP = 28;  // (a * b) + (c * d), (a * b) - (c * d)
 static const int IADS_OP = 29;  // a + b + c + d
 static const int FADS_OP = 30;  // a + b + c + d
+static const int FMA__OP = 31;
+static const int SMRI_OP = 32;
+static const int SMRE_OP = 33;
+static const int REMN_OP = 34;
+static const int FIX__OP = 35;
+static const int FLT__OP = 36;
+
 
 static const int ARGC_OP =  0;
 static const int CALL_OP =  1;
@@ -120,6 +127,10 @@ static const int BRT__OP =  3;
 static const int BRF__OP =  4;
 static const int SPIL_OP =  5;
 static const int EXIT_OP =  6;
+static const int ROTS_OP =  7;
+static const int ALLC_OP =  8;
+static const int FREE_OP =  9;
+
 
 
 

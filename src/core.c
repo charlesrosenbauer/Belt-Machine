@@ -178,6 +178,12 @@ uint16_t* printDecode(uint16_t* ip){
             case FMAS_OP : printOp_2Par(ip[index], "FMAS", 'b', 'b'); break;
             case IADS_OP : printOp_2Par(ip[index], "IADS", 'b', 'b'); break;
             case FADS_OP : printOp_2Par(ip[index], "FADS", 'b', 'b'); break;
+            case FMA__OP : printOp_1Par(ip[index], "FMA" , 'b'     ); break;
+            case SMRI_OP : printOp_1Par(ip[index], "SMRI", 'b'     ); break;
+            case SMRE_OP : printOp_1Par(ip[index], "SMRE", 'b'     ); break;
+            case REMN_OP : printOp_1Par(ip[index], "REMN", 'b'     ); break;
+            case FIX__OP : printOp_1Par(ip[index], "FIX" , 'b'     ); break;
+            case FLT__OP : printOp_1Par(ip[index], "FLT" , 'b'     ); break;
 
             default : printf("  INVALID\n");
           }
@@ -221,6 +227,9 @@ uint16_t* printDecode(uint16_t* ip){
             case BRT__OP : printOp_2Par(ip[index], "BRT" , 'b', 'b'); break;
             case BRF__OP : printOp_2Par(ip[index], "BRF" , 'b', 'b'); break;
             case SPIL_OP : printOp_2Par(ip[index], "SPIL", 's', 'b'); break;
+            case ROTS_OP : printOp_1Par(ip[index], "ROTS", 'b'     ); break;
+            case ALLC_OP : printOp_1Par(ip[index], "ALLC", 'b'     ); break;
+            case FREE_OP : printOp_1Par(ip[index], "FREE", 'b'     ); break;
             case EXIT_OP : printf("  EXIT\n"); fail = 1;              break;
 
             default : printf("  INVALID\n");
