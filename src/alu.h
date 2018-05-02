@@ -113,12 +113,13 @@ static const int CALL_OP =  1;
 static const int PICK_OP =  0;
 static const int RECR_OP =  1;
 
-static const int STR___OP =  0;
-static const int LOD___OP =  1;
-static const int BR____OP =  2;
-static const int BRT___OP =  3;
-static const int BRF___OP =  4;
-static const int SPILL_OP =  5;
+static const int STR__OP =  0;
+static const int LOD__OP =  1;
+static const int BR___OP =  2;
+static const int BRT__OP =  3;
+static const int BRF__OP =  4;
+static const int SPIL_OP =  5;
+static const int EXIT_OP =  6;
 
 
 
