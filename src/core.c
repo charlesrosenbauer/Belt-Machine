@@ -131,11 +131,11 @@ uint16_t* printDecode(uint16_t* ip){
           switch(ip[index] >> 10){
             case RET__OP : printOp_1Par(ip[index], "RET", 'r'); break;
             case IMM__OP : printOp_1IMM(ip[index], "IMM", 'x'); break;
-            case NIL__OP : printf("  NIL\n"); break;
-            case NAR__OP : printf("  NAR\n"); break;
-            case ZER__OP : printf("  ZER\n"); break;
-            case ONE__OP : printf("  ONE\n"); break;
-            case FILL_OP : printOp_1Par(ip[index], "FILL", 's'); break;
+            case NIL__OP : printOp_1Par(ip[index], "NIL", 'v'); break;
+            case NAR__OP : printOp_1Par(ip[index], "NAR", 'v'); break;
+            case ZER__OP : printOp_1Par(ip[index], "ZER", 'v'); break;
+            case ONE__OP : printOp_1Par(ip[index], "ONE", 'v'); break;
+            case FILL_OP : printOp_2Par(ip[index], "FILL", 's', 'v'); break;
 
             default : printf("  INVALID\n");
           }
@@ -222,7 +222,7 @@ uint16_t* printDecode(uint16_t* ip){
           // Decode Instruction
           switch(ip[index] >> 10){
             case STR__OP : printOp_2Par(ip[index], "STR" , 'r', 'b'); break;
-            case LOD__OP : printOp_1Par(ip[index], "LOD" , 'b'     ); break;
+            case LOD__OP : printOp_2Par(ip[index], "LOD" , 'b', 'v'); break;
             case BR___OP : printOp_1Par(ip[index], "BR"  , 'b'     ); break;
             case BRT__OP : printOp_2Par(ip[index], "BRT" , 'b', 'b'); break;
             case BRF__OP : printOp_2Par(ip[index], "BRF" , 'b', 'b'); break;

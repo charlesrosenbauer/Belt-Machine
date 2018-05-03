@@ -106,7 +106,7 @@ static const int ARGX_OP = 27;
 static const int FMAS_OP = 28;  // (a * b) + (c * d), (a * b) - (c * d)
 static const int IADS_OP = 29;  // a + b + c + d
 static const int FADS_OP = 30;  // a + b + c + d
-static const int FMA__OP = 31;
+static const int FMA__OP = 31;  // (a * b) + c
 static const int SMRI_OP = 32;
 static const int SMRE_OP = 33;
 static const int REMN_OP = 34;
@@ -130,6 +130,46 @@ static const int EXIT_OP =  6;
 static const int ROTS_OP =  7;
 static const int ALLC_OP =  8;
 static const int FREE_OP =  9;
+
+
+
+
+
+
+
+
+
+
+static const int V08x01 =  0;
+static const int V16x01 =  1;
+static const int V32x01 =  2;
+static const int V64x01 =  3;
+// No 128bit for not, V128x01 = 4;
+static const int V08x02 =  5;
+static const int V16x02 =  6;
+static const int V32x02 =  7;
+static const int V64x02 =  8;
+// V128x02 = 9;
+static const int V08x04 = 10;
+static const int V16x04 = 11;
+static const int V32x04 = 12;
+static const int V64x04 = 13;
+//empty
+static const int V08x08 = 14;
+static const int V16x08 = 15;
+static const int V32x08 = 16;
+//empty
+//empty
+static const int V08x16 = 17;
+static const int V16x16 = 18;
+//empty
+//empty
+//empty
+static const int V08x32 = 18;
+
+
+
+
 
 
 
