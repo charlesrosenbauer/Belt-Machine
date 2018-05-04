@@ -184,6 +184,9 @@ uint16_t* printDecode(uint16_t* ip){
             case REMN_OP : printOp_1Par(ip[index], "REMN", 'b'     ); break;
             case FIX__OP : printOp_1Par(ip[index], "FIX" , 'b'     ); break;
             case FLT__OP : printOp_1Par(ip[index], "FLT" , 'b'     ); break;
+            case WIDE_OP : printOp_1Par(ip[index], "WIDE", 'b'     ); break;
+            case NARW_OP : printOp_1Par(ip[index], "NARW", 'b'     ); break;
+            case SUMV_OP : printOp_1Par(ip[index], "SUMV", 'b'     ); break;
 
             default : printf("  INVALID\n");
           }
@@ -230,6 +233,7 @@ uint16_t* printDecode(uint16_t* ip){
             case ROTS_OP : printOp_1Par(ip[index], "ROTS", 'b'     ); break;
             case ALLC_OP : printOp_1Par(ip[index], "ALLC", 'b'     ); break;
             case FREE_OP : printOp_1Par(ip[index], "FREE", 'b'     ); break;
+            case ALCS_OP : printOp_1Par(ip[index], "ALCS", 'b'     ); break;
             case EXIT_OP : printf("  EXIT\n"); fail = 1;              break;
 
             default : printf("  INVALID\n");

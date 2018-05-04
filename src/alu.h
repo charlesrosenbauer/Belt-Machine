@@ -112,7 +112,9 @@ static const int SMRE_OP = 33;
 static const int REMN_OP = 34;
 static const int FIX__OP = 35;
 static const int FLT__OP = 36;
-
+static const int WIDE_OP = 37;
+static const int NARW_OP = 38;
+static const int SUMV_OP = 39;
 
 static const int ARGC_OP =  0;
 static const int CALL_OP =  1;
@@ -130,6 +132,7 @@ static const int EXIT_OP =  6;
 static const int ROTS_OP =  7;
 static const int ALLC_OP =  8;
 static const int FREE_OP =  9;
+static const int ALCS_OP = 10;
 
 
 
