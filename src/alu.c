@@ -1,5 +1,6 @@
 #include "alu.h"
 #include "belt.h"
+#include "core.h"
 
 
 
@@ -51,7 +52,9 @@ REGISTER getMetaData_2Par(REGISTER a, REGISTER b){
 /*
   @FIX : This needs to be adapted to better take into account None and Invalid values.
 */
-void aluOp(BELT* belt, BELT* outbelt, OPCODE aop, OPCODE bop){
+void aluOp(BELTCORE* core, int delIndex, OPCODE aop, OPCODE bop){
+
+  BELT* belt = &core->belt;
 
   int opA = aop & OPMASK_X;
   int opB = bop & OPMASK_X;

@@ -3,6 +3,7 @@
 
 #include "stdint.h"
 #include "belt.h"
+#include "core.h"
 
 
 
@@ -131,7 +132,7 @@ static const int V08x32 = 18;
 
 
 // Handles a pair of ALUs, in case multiple parameters are passed into one
-void  aluOp(BELT*, BELT*, OPCODE, OPCODE);
-void  fpuOp(BELT*, BELT*, OPCODE, OPCODE);
+void  aluOp(BELTCORE*, int, OPCODE, OPCODE);
+void  fpuOp(BELTCORE*, int, OPCODE, OPCODE);
 
 #endif

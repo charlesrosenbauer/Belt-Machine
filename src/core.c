@@ -1,5 +1,6 @@
 #include "core.h"
 #include "stdio.h"
+#include "alu.h"
 
 
 

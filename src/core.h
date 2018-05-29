@@ -2,7 +2,6 @@
 #define __CORE_HEADER__
 
 #include "belt.h"
-#include "alu.h"
 
 
 
