@@ -27,8 +27,8 @@ typedef struct{
 
 
 typedef enum {
-  DSM_REGISTER = 0;
-  DSM_LOAD     = 1;
+  DSM_REGISTER = 0,
+  DSM_LOAD     = 1
 } DELAYSLOTMODE;
 
 typedef struct{
@@ -76,7 +76,7 @@ typedef struct{
 typedef struct{
   BELT belt;
 
-  ALU alu[4]; // 2 ALU gangs, 4 ALUs total
+  DELAYGRID delays;
 
   RETIRE retire;  // Retire stations
 }BELTCORE;
