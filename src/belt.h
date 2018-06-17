@@ -28,8 +28,24 @@ static const uint16_t MD_MASK_VALID = 0x3000;
 
 
 typedef struct{
-  uint64_t val;
-  METADATA  metadata;
+  union{
+    uint64_t u64[2];
+    uint32_t u32[4];
+    uint16_t u16[8];
+    uint8_t  u8[16];
+
+    int64_t  i64[2];
+    int32_t  i32[4];
+    int16_t  i16[8];
+    int8_t   i8[16];
+
+    double   f64[2];
+    float    f32[4];
+  }val;
+
+  uint8_t  vwidth;
+  uint8_t  swidth;
+  METADATA metadata[16];
 }REGISTER;
 
 

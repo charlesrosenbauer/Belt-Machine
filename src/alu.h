@@ -62,6 +62,10 @@ static const int FLT__OP = 36;
 static const int WIDE_OP = 37;
 static const int NARW_OP = 38;
 static const int SUMV_OP = 39;
+static const int UADD_OP = 40;
+static const int USUB_OP = 41;
+static const int UMUL_OP = 42;
+static const int UDIV_OP = 43;
 
 static const int ARGC_OP =  0;
 static const int CALL_OP =  1;

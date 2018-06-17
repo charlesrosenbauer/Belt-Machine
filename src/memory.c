@@ -1,4 +1,21 @@
 #include "memory.h"
+#include "stdlib.h"
+
+
+
+
+
+
+
+
+
+
+RAM initRAM(int size){
+  RAM ret;
+  ret.size = size;
+  ret.bytes = malloc(sizeof(uint8_t) * size);
+  return ret;
+}
 
 
 

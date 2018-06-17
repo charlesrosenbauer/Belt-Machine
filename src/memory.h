@@ -27,6 +27,7 @@ typedef struct{
 
 
 // @TODO: Adjust these to deal with NARs and invalid addresses, etc.
+RAM     initRAM  (int);
 uint8_t  readByte(RAM*, uint64_t);
 uint16_t readHalf(RAM*, uint64_t);
 uint32_t readWord(RAM*, uint64_t);
