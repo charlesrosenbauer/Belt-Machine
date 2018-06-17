@@ -152,6 +152,10 @@ uint16_t* printDecode(uint16_t* ip){
             case ISUB_OP : printOp_2Par(ip[index], "ISUB", 'b', 'b'); break;
             case IMUL_OP : printOp_2Par(ip[index], "IMUL", 'b', 'b'); break;
             case IDIV_OP : printOp_2Par(ip[index], "IDIV", 'b', 'b'); break;
+            case UADD_OP : printOp_2Par(ip[index], "UADD", 'b', 'b'); break;
+            case USUB_OP : printOp_2Par(ip[index], "USUB", 'b', 'b'); break;
+            case UMUL_OP : printOp_2Par(ip[index], "UMUL", 'b', 'b'); break;
+            case UDIV_OP : printOp_2Par(ip[index], "UDIV", 'b', 'b'); break;
             case FADD_OP : printOp_2Par(ip[index], "FADD", 'b', 'b'); break;
             case FSUB_OP : printOp_2Par(ip[index], "FSUB", 'b', 'b'); break;
             case FMUL_OP : printOp_2Par(ip[index], "FMUL", 'b', 'b'); break;
