@@ -234,6 +234,72 @@ inline REGISTER usubOp(REGISTER a, REGISTER b){
 
 
 
+inline REGISTER umulOp(REGISTER a, REGISTER b){
+  REGISTER ret;
+  if((a.swidth != b.swidth) || (a.vwidth != b.vwidth)){
+    ret.swidth = 1;
+    ret.vwidth = 1;
+    ret.metadata[0] = MD_NAR;
+    return ret;
+  }
+  switch(a.swidth){
+    case 1:{
+      switch(a.vwidth){
+          ret.val.u8[ 0] = a.val.u8[ 0] * b.val.u8[ 0];
+          ret.val.u8[ 1] = a.val.u8[ 1] * b.val.u8[ 1];
+          ret.val.u8[ 2] = a.val.u8[ 2] * b.val.u8[ 2];
+          ret.val.u8[ 3] = a.val.u8[ 3] * b.val.u8[ 3];
+          ret.val.u8[ 4] = a.val.u8[ 4] * b.val.u8[ 4];
+          ret.val.u8[ 5] = a.val.u8[ 5] * b.val.u8[ 5];
+          ret.val.u8[ 6] = a.val.u8[ 6] * b.val.u8[ 6];
+          ret.val.u8[ 7] = a.val.u8[ 7] * b.val.u8[ 7];
+          ret.val.u8[ 8] = a.val.u8[ 8] * b.val.u8[ 8];
+          ret.val.u8[ 9] = a.val.u8[ 9] * b.val.u8[ 9];
+          ret.val.u8[10] = a.val.u8[10] * b.val.u8[10];
+          ret.val.u8[11] = a.val.u8[11] * b.val.u8[11];
+          ret.val.u8[12] = a.val.u8[12] * b.val.u8[12];
+          ret.val.u8[13] = a.val.u8[13] * b.val.u8[13];
+          ret.val.u8[14] = a.val.u8[14] * b.val.u8[14];
+          ret.val.u8[15] = a.val.u8[15] * b.val.u8[15];
+      }
+    }break;
+    case 2:{
+          ret.val.u16[0] = a.val.u16[0] * b.val.u16[0];
+          ret.val.u16[1] = a.val.u16[1] * b.val.u16[1];
+          ret.val.u16[2] = a.val.u16[2] * b.val.u16[2];
+          ret.val.u16[3] = a.val.u16[3] * b.val.u16[3];
+          ret.val.u16[4] = a.val.u16[4] * b.val.u16[4];
+          ret.val.u16[5] = a.val.u16[5] * b.val.u16[5];
+          ret.val.u16[6] = a.val.u16[6] * b.val.u16[6];
+          ret.val.u16[7] = a.val.u16[7] * b.val.u16[7];
+      }break;
+    case 4:{
+        ret.val.u32[0] = a.val.u32[0] * b.val.u32[0];
+        ret.val.u32[1] = a.val.u32[1] * b.val.u32[1];
+        ret.val.u32[2] = a.val.u32[2] * b.val.u32[2];
+        ret.val.u32[3] = a.val.u32[3] * b.val.u32[3];
+    }break;
+    case 8:{
+        ret.val.i64[0] = a.val.i64[0] * b.val.i64[0];
+        ret.val.i64[1] = a.val.i64[1] * b.val.i64[1];
+    }break;
+    default:{
+        ret.vwidth = 1;
+        ret.swidth = 1;
+        ret.metadata[0] = MD_NAR;
+    }break;
+  }
+  return correctWidth(ret);
+}
+
+
+
+
+
+
+
+
+
 
 inline REGISTER saddOp(REGISTER a, REGISTER b){
   REGISTER ret;
@@ -301,7 +367,7 @@ inline REGISTER saddOp(REGISTER a, REGISTER b){
 
 
 
-inline REGISTER isubOp(REGISTER a, REGISTER b){
+inline REGISTER ssubOp(REGISTER a, REGISTER b){
   REGISTER ret;
   if((a.swidth != b.swidth) || (a.vwidth != b.vwidth)){
     ret.swidth = 1;
@@ -368,10 +434,98 @@ inline REGISTER isubOp(REGISTER a, REGISTER b){
 
 
 
+inline REGISTER smulOp(REGISTER a, REGISTER b){
+  REGISTER ret;
+  if((a.swidth != b.swidth) || (a.vwidth != b.vwidth)){
+    ret.swidth = 1;
+    ret.vwidth = 1;
+    ret.metadata[0] = MD_NAR;
+    return ret;
+  }
+  switch(a.swidth){
+    case 1:{
+      switch(a.vwidth){
+          ret.val.u8[ 0] = a.val.u8[ 0] * b.val.u8[ 0];
+          ret.val.u8[ 1] = a.val.u8[ 1] * b.val.u8[ 1];
+          ret.val.u8[ 2] = a.val.u8[ 2] * b.val.u8[ 2];
+          ret.val.u8[ 3] = a.val.u8[ 3] * b.val.u8[ 3];
+          ret.val.u8[ 4] = a.val.u8[ 4] * b.val.u8[ 4];
+          ret.val.u8[ 5] = a.val.u8[ 5] * b.val.u8[ 5];
+          ret.val.u8[ 6] = a.val.u8[ 6] * b.val.u8[ 6];
+          ret.val.u8[ 7] = a.val.u8[ 7] * b.val.u8[ 7];
+          ret.val.u8[ 8] = a.val.u8[ 8] * b.val.u8[ 8];
+          ret.val.u8[ 9] = a.val.u8[ 9] * b.val.u8[ 9];
+          ret.val.u8[10] = a.val.u8[10] * b.val.u8[10];
+          ret.val.u8[11] = a.val.u8[11] * b.val.u8[11];
+          ret.val.u8[12] = a.val.u8[12] * b.val.u8[12];
+          ret.val.u8[13] = a.val.u8[13] * b.val.u8[13];
+          ret.val.u8[14] = a.val.u8[14] * b.val.u8[14];
+          ret.val.u8[15] = a.val.u8[15] * b.val.u8[15];
+      }
+    }break;
+    case 2:{
+          ret.val.i16[0] = a.val.i16[0] * b.val.i16[0];
+          ret.val.i16[1] = a.val.i16[1] * b.val.i16[1];
+          ret.val.i16[2] = a.val.i16[2] * b.val.i16[2];
+          ret.val.i16[3] = a.val.i16[3] * b.val.i16[3];
+          ret.val.i16[4] = a.val.i16[4] * b.val.i16[4];
+          ret.val.i16[5] = a.val.i16[5] * b.val.i16[5];
+          ret.val.i16[6] = a.val.i16[6] * b.val.i16[6];
+          ret.val.i16[7] = a.val.i16[7] * b.val.i16[7];
+      }break;
+    case 4:{
+        ret.val.i32[0] = a.val.i32[0] * b.val.i32[0];
+        ret.val.i32[1] = a.val.i32[1] * b.val.i32[1];
+        ret.val.i32[2] = a.val.i32[2] * b.val.i32[2];
+        ret.val.i32[3] = a.val.i32[3] * b.val.i32[3];
+    }break;
+    case 8:{
+        ret.val.u64[0] = a.val.u64[0] * b.val.u64[0];
+        ret.val.u64[1] = a.val.u64[1] * b.val.u64[1];
+    }break;
+    default:{
+        ret.vwidth = 1;
+        ret.swidth = 1;
+        ret.metadata[0] = MD_NAR;
+    }break;
+  }
+  return correctWidth(ret);
+}
+
+
+
+
+
+
+
+
+
+
+inline void insertBeltcore(REGISTER x, BELTCORE* core, int latency, int slot){
+
+  DELAYSLOT d;
+  d.r = x;
+  d.mode = DSM_REGISTER;
+
+  int del = (core->delays.timeIndex + latency) % 33;
+
+  core->delays.activeMask[del] |= (1 << slot);
+  core->delays.slots[slot][del] = d;
+}
+
+
+
+
+
+
+
+
+
+
 /*
   @FIX : This needs to be adapted to better take into account None and Invalid values.
 */
-void aluOp(BELTCORE* core, int delIndex, OPCODE aop, OPCODE bop){
+void aluOp(BELTCORE* core, int slot, OPCODE aop, OPCODE bop){
 
   int opA = aop & OPMASK_X;
   int opB = bop & OPMASK_X;
@@ -386,24 +540,37 @@ void aluOp(BELTCORE* core, int delIndex, OPCODE aop, OPCODE bop){
   argB.swidth      = 1;
   argB.vwidth      = 1;
 
+  REGISTER ra, rb;
+
+  getBeltItems(&(core->belt), opA, &ra, &rb);
+
+
   int argsSet = 0;
 
   if(opA){
     switch(opA){
       case IADD_OP:{
-
+        insertBeltcore(saddOp(ra, rb), core, 1, slot);
       }break;
 
       case ISUB_OP:{
+        insertBeltcore(ssubOp(ra, rb), core, 1, slot);
+      }break;
 
+      case IMUL_OP:{
+        insertBeltcore(smulOp(ra, rb), core, 1, slot);
       }break;
 
       case UADD_OP:{
-
+        insertBeltcore(uaddOp(ra, rb), core, 1, slot);
       }break;
 
       case USUB_OP:{
+        insertBeltcore(usubOp(ra, rb), core, 1, slot);
+      }break;
 
+      case UMUL_OP:{
+        insertBeltcore(umulOp(ra, rb), core, 1, slot);
       }break;
     }
   }
