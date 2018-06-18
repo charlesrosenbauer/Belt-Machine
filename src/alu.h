@@ -138,4 +138,12 @@ static const int V08x32 = 18;
 // Handles a pair of ALUs, in case multiple parameters are passed into one
 int aluOp(BELTCORE*, int, OPCODE, REGISTER*, REGISTER*);
 
+//For some reason I have to declare these here to avoid linker errors?
+REGISTER uaddOp(REGISTER, REGISTER);
+REGISTER usubOp(REGISTER, REGISTER);
+REGISTER umulOp(REGISTER, REGISTER);
+REGISTER saddOp(REGISTER, REGISTER);
+REGISTER ssubOp(REGISTER, REGISTER);
+REGISTER smulOp(REGISTER, REGISTER);
+
 #endif
