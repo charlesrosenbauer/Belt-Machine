@@ -264,6 +264,63 @@ uint16_t* printDecode(uint16_t* ip){
 
 
 
-void coreStep(BELTCORE* core){
+uint16_t* coreStep(BELTCORE* core, uint16_t* ip){
+  uint32_t header = ip[0] | (((uint32_t)ip[1]) << 16);
+  int opIndex = 1;
 
+  for(int i = 0; i < 8; i++){
+    // READ OPS
+    if((1<<i) & header){
+      uint16_t op = ip[opIndex];
+
+    }
+  }
+
+  // We update the belt here in order to make results from the READ phase
+  // visible to subsequent phases
+
+
+
+  for(int i = 8; i < 16; i++){
+    // EXEC OPS
+    if((1<<i) & header){
+      uint16_t op = ip[opIndex];
+
+      opIndex++;
+    }
+  }
+
+  for(int i = 16; i < 24; i++){
+    // CALL OPS
+    if((1<<i) & header){
+      uint16_t op = ip[opIndex];
+
+      opIndex++;
+    }
+  }
+
+  for(int i = 24; i < 28; i++){
+    // PICK OPS
+    if((1<<i) & header){
+      uint16_t op = ip[opIndex];
+
+      opIndex++;
+    }
+  }
+
+  // We update the delayline index here in order to create mill-like phasing.
+  // WRITE phase doesn't write anything to the belt, but can depend on results
+  // from previous phases
+  core->delays.timeIndex = (core->delays.timeIndex + 1) % 33;
+
+  for(int i = 28; i < 32; i++){
+    // WRITE OPS
+    if((1<<i) && header){
+      uint16_t op = ip[opIndex];
+
+      opIndex++;
+    }
+  }
+
+  return ip+opIndex;
 }

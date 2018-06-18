@@ -89,7 +89,7 @@ typedef struct{
 
 
 
-void coreStep(BELTCORE*);
+uint16_t* coreStep(BELTCORE*, uint16_t*);
 uint16_t* printDecode(uint16_t*);
 void addOp_1Par(uint16_t*, int*, int, int);
 void addOp_2Par(uint16_t*, int*, int, int, int);
