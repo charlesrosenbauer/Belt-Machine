@@ -136,7 +136,6 @@ static const int V08x32 = 18;
 
 
 // Handles a pair of ALUs, in case multiple parameters are passed into one
-void  aluOp(BELTCORE*, int, OPCODE, OPCODE);
-void  fpuOp(BELTCORE*, int, OPCODE, OPCODE);
+int aluOp(BELTCORE*, int, OPCODE, REGISTER*, REGISTER*);
 
 #endif
